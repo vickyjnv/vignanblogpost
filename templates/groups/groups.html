@@ -1,0 +1,13 @@
+{% extends "post/header.html"%}
+{% block content %}
+<div class="right hide-on-med-and-down"	>
+	<a href="{%url 'group-create'%}" 
+	class="btn-floating btn-large waves-effect waves-light red">NEW</a>
+</div>
+	<h1> List Of Communities:</h1>
+	<ul class="collection">
+    {% for g in group %}
+    	 <a href="{% url 'groups' %}{{ g.name }}" class="collection-item"><span class="badge"></span>{{ g.name }}</a>
+    {% endfor %}
+    </ul>
+{% endblock content %}
