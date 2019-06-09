@@ -2,7 +2,6 @@ absl-py==0.7.1
 asn1crypto==0.24.0
 astor==0.8.0
 blinker==1.4
-Brlapi==0.6.7
 certifi==2018.8.24
 chardet==3.0.4
 command-not-found==0.3
