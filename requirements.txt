@@ -7,6 +7,4 @@ chardet==3.0.4
 Django==2.2.2
 gunicorn==19.9.0
 Markdown==3.1.1
-python-apt==1.8.4
-python-dateutil==2.7.3
 virtualenv==16.6.
