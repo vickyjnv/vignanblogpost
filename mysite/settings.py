@@ -111,3 +111,5 @@ USE_TZ = True
 
 LOGIN_REDIRECT_URL = 'index'
 LOGIN_URL = 'login'
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
