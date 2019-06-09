@@ -1,12 +1,21 @@
 
-    <!-- Compiled and minified CSS -->
+    
+            
+<html>
+<head>
+  <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-            
-<html>
-<head>
     {% if title %}
         <title>Django Blog - {{ title }}</title>
     {% else %}
@@ -15,8 +24,9 @@
 </head>
 <body>
 
+
 <nav class="light-blue lighten-1" role="navigation">
-    <div class="nav-wrapper">
+    <div class="nav-wrapper container">
       <a href="{% url 'index' %}" class="brand-logo">Home</a>
         <ul class="right hide-on-med-and-down">
           {% if user.is_authenticated %}
@@ -41,6 +51,14 @@
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
   </nav>
+  {% if user.is_authenticated %}
+                <li><a href="{% url 'post-create' %}">New Post</a></li>
+                <li><a href="{% url 'groups' %}">Communities</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+              {% else %}
+                <li><a href="{% url 'register' %}">Register</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+          {% endif %}
     <main role="main" class="container">
       <div class="row">
         <div class="col-md-8">
