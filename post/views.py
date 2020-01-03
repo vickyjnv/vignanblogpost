@@ -64,6 +64,7 @@ class GListView(ListView):
 
 class PostDetailView(DetailView):
 	model = Posts
+	
 
 
 class PostCreateView(LoginRequiredMixin, CreateView):

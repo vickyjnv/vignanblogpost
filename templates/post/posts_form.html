@@ -1,6 +1,8 @@
+{% extends "post/header.html"%}
 
 {% block content %}
-    <div class="input-field col s12">
+    <div class="content-section">
+        <h1 class="text-primary">Post</h1>
         <form method="POST">
             {% csrf_token %}
             <fieldset class="form-group">
