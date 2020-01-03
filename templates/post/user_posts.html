@@ -1,19 +1,25 @@
 {% extends "post/header.html"%}
 {% block content %}
-  <div class="row">
-  	{% for post in posts %}
-    <div class="col s12 m14">
-      <div class="card blue-grey darken-1">
-        <div class="card-content white-text">
-          <span class="card-title">{{ post.title }}</span>
-          <small>{{ post.user }}   {{ post.date_posted|date:"F d, Y" }}</small>
-          <p>{{ post.context }}</p>
-        </div>
-        	<div class="card-action"><a href="{% url 'post-detail' post.id %}">Click</a>
-        </div>
-      </div>
-    </div>
-   {% endfor %}
+
+{% for post in posts %}
+
+<div class="card">
+  <div class="card-header">
+    <a class="card-subtitle mb-2 text-muted" href="{% url 'user-posts' post.user.username %}">{{ post.user }}</a>
   </div>
-            
+  <div class="card-body">
+    <a class="card-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a>
+    </br>
+    <small>{{ post.date_posted|date:"F d, Y" }}</small>
+    </br></br>
+    <p class="card-text">{{ post.context }}</p>
+    <a href="{% url 'groups' %}{{ post.groups }}" class="btn btn-primary">{{ post.groups }}</a>
+  </div>
+
+</div>
+</br>
+
+{% endfor %}
+
+
 {% endblock content %}
