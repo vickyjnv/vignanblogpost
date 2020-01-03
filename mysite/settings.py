@@ -15,7 +15,7 @@ SECRET_KEY = 'ekfchs9c69(31_=nu$87^x1ly(&)n5y9c=2#i&z&wqv1)a9p^-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['myadjangoapp.herokuapp.com','127.0.0.1',]
+ALLOWED_HOSTS = ['myadjangoapp.herokuapp.com','127.0.0.1','https://viitblog.azurewebsites.net/']
 
 
 # Application definition
