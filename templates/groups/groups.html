@@ -1,13 +1,17 @@
-{% extends "post/header.html"%}
-{% block content %}
+{% extends "post/header.html"%} {% block content %}
 </br>
-
-<a type="button" href="{%url 'group-create'%}"  class="btn btn-danger" >Create NEW Group</a>
-
-	<h1> List Of Groups:</h1>
-	<ul class="list-group">
+<table>
+    <tr>
+        <td>
+            <h1> List Of Groups:</h1>
+        </td>
+        <td>
+            <a type="button" href="{%url 'group-create'%}" class="btn btn-info">Create NEW Group</a>
+        </td>
+    </tr>
+</table>
+<ul class="list-group">
     {% for g in group %}
-    	 <a href="{% url 'groups' %}{{ g.name }}" class="list-group-item">{{ g.name }}</a>
-    {% endfor %}
-    </ul>
+    <a href="{% url 'groups' %}{{ g.name }}" class="list-group-item">{{ g.name }}</a> {% endfor %}
+</ul>
 {% endblock content %}
