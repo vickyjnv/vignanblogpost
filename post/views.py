@@ -69,7 +69,7 @@ class PostDetailView(DetailView):
 
 class PostCreateView(LoginRequiredMixin, CreateView):
 	model = Posts
-	fields = ['groups','title', 'context',]
+	fields = ['groups','title', 'context','image']
 	def form_valid(self, form):
 		form.instance.user = self.request.user
 		return super().form_valid(form)

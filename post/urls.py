@@ -11,6 +11,7 @@ from .views import (
 	GListView
 )
 from . import views as views
+from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -24,4 +25,4 @@ urlpatterns = [
 	path('post/<int:pk>/delete/', PostDeleteView.as_view(), name='post-delete'),
 	path('user/<str:username>', UserListView.as_view(), name = 'user-posts'),
 	path('groups/<str:name>', GListView.as_view(), name = 'group-posts'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
