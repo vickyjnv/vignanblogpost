@@ -13,13 +13,16 @@ from django.views.generic import (
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
+
 
 def index(request):
-	context = {
-		'posts' : Posts.objects.all()
-	}
-	return render(request, "post/index.html", context)
-
+	posts = Posts.objects.all().order_by('-date_posted')
+	paginator = Paginator(posts, 3)
+	page = request.GET.get('page')
+	posts = paginator.get_page(page)
+	return render(request,'post/index.html', {'posts': posts})
+	
 
 def register(request):
 	if request.method == 'POST':

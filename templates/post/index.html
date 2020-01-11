@@ -1,6 +1,7 @@
 {% extends "post/header.html"%}
 {% block content %}
 
+
 </br>
 {% for post in posts %}
 
@@ -21,5 +22,14 @@
 </br>
 
 {% endfor %}
+
+{% if posts.paginator.num_pages > 1 %}
+
+    <!-- start -->
+    {% include 'post/_pagination.html' with posts=posts %}
+    <!-- end -->
+
+{% endif %}
+
 
 {% endblock content %}
