@@ -36,6 +36,14 @@ def register(request):
 		form = UserCreationForm()
 	return render(request, 'post/register.html', {'form': form })
 
+def view_profile(request, pk=None):
+    if pk:
+        user = User.objects.get(pk=pk)
+    else:
+        user = request.user
+    args = {'user': user}
+    return render(request, 'post/profile.html', args)
+
 
 class PostListView(ListView):
 	model = Posts
