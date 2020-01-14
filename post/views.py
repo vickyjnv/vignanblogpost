@@ -11,6 +11,7 @@ from django.views.generic import (
 	DeleteView
 )
 from django.contrib import messages
+from .forms import UserRegisterForm, EditProfileForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
@@ -18,7 +19,7 @@ from django.core.paginator import Paginator
 
 def index(request):
 	posts = Posts.objects.all().order_by('-date_posted')
-	paginator = Paginator(posts, 3)
+	paginator = Paginator(posts, 10)
 	page = request.GET.get('page')
 	posts = paginator.get_page(page)
 	return render(request,'post/index.html', {'posts': posts})
@@ -26,14 +27,14 @@ def index(request):
 
 def register(request):
 	if request.method == 'POST':
-		form = UserCreationForm(request.POST)
+		form = UserRegisterForm(request.POST)
 		if form.is_valid():
 			form.save()
 			username = form.cleaned_data.get('username')
 			messages.success(request, f'Account created for {username}!')
 			return redirect('index')
 	else:
-		form = UserCreationForm()
+		form = UserRegisterForm()
 	return render(request, 'post/register.html', {'form': form })
 
 def view_profile(request, pk=None):
@@ -43,6 +44,19 @@ def view_profile(request, pk=None):
         user = request.user
     args = {'user': user}
     return render(request, 'post/profile.html', args)
+
+def edit_profile(request):
+    if request.method == 'POST':
+        form = EditProfileForm(request.POST, instance=request.user)
+
+        if form.is_valid():
+            form.save()
+            return redirect('view_profile')
+    else:
+        form = EditProfileForm(instance=request.user)
+        args = {'form': form}
+        return render(request, 'post/edit_profile.html', args)
+
 
 
 class PostListView(ListView):
