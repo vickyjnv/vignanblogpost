@@ -1,0 +1,36 @@
+{% extends "post/header.html"%}
+{% block content %}
+
+<h1> Search </h1>
+{% if submitbutton == 'Search' and request.GET.q != '' %}
+{% if results %}
+<h3>Results for <b>{{ request.GET.q }}</b></h3>
+<br/><br/>
+
+{% for result in results %}
+<div class="card">
+	<div class="card-header">
+		<a class="card-subtitle mb-2 text-muted" href="{% url 'user-posts' result.user.username %}">{{ result.user }}</a>
+	</div>
+	<div class="card-body">
+		<a class="card-title" href="{% url 'post-detail' result.id %}">{{ result.title }}</a>
+		</br>
+		<small>{{ result.date_posted|date:"F d, Y" }}</small>
+		</br></br>
+		<p class="card-text">{{ result.context }}</p>
+		<a href="{% url 'groups' %}{{ result.groups }}" class="btn btn-primary">{{ result.groups }}</a>
+</div>
+</div>
+</br>
+
+
+{% endfor %}
+{% else %}
+No search results for this query
+{% endif %}
+{% endif %}
+
+</br>
+
+
+{% endblock content %}

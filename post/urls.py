@@ -16,6 +16,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
 	path('', views.index, name='index'),
+	path('result/', views.searchposts, name='searchposts'),
 	path('profile/', views.view_profile, name='view_profile'),
 	path('profile/update/', views.edit_profile, name='edit_profile'),
 	path('profile/edit/', views.edit_basic_profile, name='edit_basic_profile'),

@@ -10,6 +10,7 @@ from django.views.generic import (
 	UpdateView,
 	DeleteView
 )
+from django.db.models import Q
 from django.contrib import messages
 from .forms import UserRegisterForm, EditProfileForm, EditBasicProfileForm
 from django.contrib.auth.forms import UserCreationForm
@@ -136,4 +137,23 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 		if self.request.user == post.user:
 			return True
 		return False
+
+def searchposts(request):
+    if request.method == 'GET':
+        query= request.GET.get('q')
+        submitbutton= request.GET.get('submit')
+        if query is not None:
+            lookups= Q(title__icontains=query) | Q(context__icontains=query)
+            results= Posts.objects.filter(lookups).distinct()
+            context={'results': results,
+                     'submitbutton': submitbutton}
+
+            return render(request, 'post/search.html', context)
+
+        else:
+            return render(request, 'post/search.html')
+
+    else:
+        return render(request, 'post/search.html')
+
 
