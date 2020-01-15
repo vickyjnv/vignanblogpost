@@ -11,7 +11,7 @@ from django.views.generic import (
 	DeleteView
 )
 from django.contrib import messages
-from .forms import UserRegisterForm, EditProfileForm
+from .forms import UserRegisterForm, EditProfileForm, EditBasicProfileForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
@@ -56,6 +56,19 @@ def edit_profile(request):
         form = EditProfileForm(instance=request.user)
         args = {'form': form}
         return render(request, 'post/edit_profile.html', args)
+
+def edit_basic_profile(request):
+    if request.method == 'POST':
+        form = EditBasicProfileForm(request.POST, instance=request.user)
+
+        if form.is_valid():
+            form.save()
+            return redirect('view_profile')
+    else:
+        form = EditBasicProfileForm(instance=request.user)
+        args = {'form': form}
+        return render(request, 'post/edit_profile.html', args)
+
 
 
 
