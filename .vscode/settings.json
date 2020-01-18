@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/c7b9cefb-4e4b-4196-bcb4-47a60fc7104b/resourceGroups/vignan/providers/Microsoft.Web/sites/viitblog",
+    "appService.deploySubpath": ""
+}
