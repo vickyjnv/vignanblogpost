@@ -28,7 +28,7 @@ class UserRegisterForm(UserCreationForm):
         return user
 
 class EditProfileForm(UserChangeForm):
-    template_name='/something/else'
+    template_name='profile/update/'
 
     class Meta:
         model = UserProfile
@@ -37,11 +37,10 @@ class EditProfileForm(UserChangeForm):
             'phone',
             'website',
             'image',
-            
         )
 
 class EditBasicProfileForm(UserChangeForm):
-    template_name='/something/else'
+    template_name='profile/edit/'
 
     class Meta:
         model = User
