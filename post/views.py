@@ -48,13 +48,13 @@ def view_profile(request, pk=None):
 
 def edit_profile(request):
     if request.method == 'POST':
-        form = EditProfileForm(request.POST, instance=request.user)
+        form = EditProfileForm(request.POST, instance=request.user.userprofile)
 
         if form.is_valid():
             form.save()
             return redirect('view_profile')
     else:
-        form = EditProfileForm(instance=request.user)
+        form = EditProfileForm(instance=request.user.userprofile)
         args = {'form': form}
         return render(request, 'post/edit_profile.html', args)
 
@@ -69,8 +69,6 @@ def edit_basic_profile(request):
         form = EditBasicProfileForm(instance=request.user)
         args = {'form': form}
         return render(request, 'post/edit_profile.html', args)
-
-
 
 
 class PostListView(ListView):
