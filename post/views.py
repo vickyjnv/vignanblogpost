@@ -56,7 +56,7 @@ def edit_profile(request):
     else:
         form = EditProfileForm(instance=request.user.userprofile)
         args = {'form': form}
-        return render(request, 'post/edit_profile.html', args)
+        return render(request, 'post/update_profile.html', args)
 
 def edit_basic_profile(request):
     if request.method == 'POST':
@@ -69,6 +69,7 @@ def edit_basic_profile(request):
         form = EditBasicProfileForm(instance=request.user)
         args = {'form': form}
         return render(request, 'post/edit_profile.html', args)
+
 
 
 class PostListView(ListView):
