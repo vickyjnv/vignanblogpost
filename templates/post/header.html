@@ -8,8 +8,6 @@
           integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
           crossorigin="anonymous">
 
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -25,17 +23,23 @@
 
 <body>
 
+  <style>
+    #sticky-footer {
+  flex-shrink: none;
+}
 
-    <nav class="navbar navbar-default navbar-fixed-top navbar-expand-lg navbar-dark bg-dark border border-info">
+  </style>
+
+    <nav class="navbar navbar-default navbar-fixed-top navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="{% url 'index' %}">
-            <img src="https://github.githubassets.com/images/modules/logos_page/Octocat.png" width="30" height="30" class="d-inline-block align-top" alt=""> Blog
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Vignan_logo.png" width="30" height="30" class="d-inline-block align-top" alt=""> Blog
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav ml-auto">
                 {% if user.is_authenticated %}
                 <li class="nav-item"><a class="nav-link" href="{% url 'post-create' %}">New Post</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'groups' %}">Groups</a></li>
@@ -47,16 +51,16 @@
                 <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
                 {% endif %}
             </ul>
-            <form class="form-inline my-2 my-lg-0" action="{% url 'searchposts' %}" method="GET" value="{{request.GET.q}}">
+            <!-- <form class="form-inline my-2 my-lg-0" action="{% url 'searchposts' %}" method="GET" value="{{request.GET.q}}">
                 <input class="form-control mr-sm-2" type="text" name="q" value="{{request.GET.q}}"  placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-info my-2 my-sm-0" name="submit"  type="submit" value="Search">Search</button>
-            </form>
+            </form> -->
         </div>
     </nav>
 
     <main role="main" class="container">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col">
                 {% if messages %} {% for message in messages %}
 
                 <div class="alert alert-{{ message.tags }}">
@@ -66,49 +70,12 @@
             </div>
         </div>
     </main>
-
-    <footer  style="background-color: blue;" >
-
-        <!-- Footer Elements -->
-        <div class="container">
-      
-          <!-- Grid row-->
-          <div class="row">
-      
-            <!-- Grid column -->
-            <div class="col-md-12 py-5">
-              <div class="mb-5 flex-center">
-      
-                <!-- Facebook -->
-                <a class="fb-ic">
-                  <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-                </a>
-                <!-- Twitter -->
-                <a class="tw-ic">
-                  <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-                </a>
-                
-                <!--Linkedin -->
-                <a class="li-ic">
-                  <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-                </a>
-                <!--Instagram-->
-                <a class="ins-ic">
-                  <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-                </a>
-                
-              </div>
-            </div>
-            <!-- Grid column -->
-      
-          </div>
-          <!-- Grid row-->
-      
-        </div>
-        <!-- Footer Elements -->
-      
-      </footer>
-      <!-- Footer -->
+    <br>
+    <div id="sticky-footer" class="py-4 bg-secondry text-black-50">
+      <div class="container text-center">
+        <small>Copyright &copy; Your Website</small>
+      </div>
+    </div>
 </body>
 
 </html>
