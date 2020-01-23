@@ -1,25 +1,38 @@
 {% extends "post/header.html"%}
 {% block content %}
 
+
+</br>
 {% for post in posts %}
 
-<div class="card">
-  <div class="card-header">
-    <a class="card-subtitle mb-2 text-muted" href="{% url 'user-posts' post.user.username %}">{{ post.user }}</a>
-  </div>
-  <div class="card-body">
-    <a class="card-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a>
-    </br>
-    <small>{{ post.date_posted|date:"F d, Y" }}</small>
-    </br></br>
-    <p class="card-text">{{ post.context }}</p>
-    <a href="{% url 'groups' %}{{ post.groups }}" class="btn btn-primary">{{ post.groups }}</a>
-  </div>
+<div class="card shadow p-3 mb-5 bg-white rounded">
+	<div style="text-align: inline;">
+		<img src="{{ post.user.userprofile.image.url }}" width="20" height="20">
+		&nbsp;
+		<a class="card-subtitle mb-2 text-muted" href="{% url 'user-posts' post.user.username %}">{{ post.user }}</a>
+	</div>
+
+	<div class="card-body">
+		<a class="card-title" style="font-size: 2em;" href="{% url 'post-detail' post.id %}">{{ post.title }}</a>
+		</br>
+		<a href="{% url 'groups' %}{{ post.groups }}" class="pills">#{{ post.groups }}</a><br>
+		<small>{{ post.date_posted|date:"F d, Y" }}</small>
+		</br></br>
+		<p class="card-text">{{ post.context }}</p>
+
+	</div>
 
 </div>
-</br>
 
 {% endfor %}
+
+{% if posts.paginator.num_pages > 1 %}
+
+<!-- start -->
+{% include 'post/_pagination.html' with posts=posts %}
+<!-- end -->
+
+{% endif %}
 
 
 {% endblock content %}
