@@ -2,14 +2,15 @@
 {% block content %}
 
 <div class="container">
-    <form method="post">
+    <form method="post" enctype='multipart/form-data'>
         {% csrf_token %}
         <p >Email :    {{ form.email }}</p>
         <p> First Name     {{ form.first_name }}</p>
         <p> Last Name : {{ form.last_name }} </p>
         <button type="submit">Submit</button>
+        <button type="cancel" onclick="window.location='/'">Cancel</button>
     </form>
-    <br>
+
 </div>
 
 
