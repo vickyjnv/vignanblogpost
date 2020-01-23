@@ -1,81 +1,87 @@
+{% load static %}
 
-   {% load static %} 
-            
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-          integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
-          crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    {% if title %}
-    <title>Vignan Blog - {{ title }}</title>
-    {% else %}
-    <title>Vignan Blog</title>
-    {% endif %}
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  {% if title %}
+  <title>Vignan Blog - {{ title }}</title>
+  {% else %}
+  <title>Vignan Blog</title>
+  {% endif %}
 </head>
 
 <body>
 
   <style>
     #sticky-footer {
-  flex-shrink: none;
-}
-
+      flex-shrink: none;
+    }
   </style>
 
-    <nav class="navbar navbar-default navbar-fixed-top navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{% url 'index' %}">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Vignan_logo.png" width="30" height="30" class="d-inline-block align-top" alt=""> Blog
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  <nav class="navbar navbar-default navbar-fixed-top navbar-expand-lg navbar-light bg-white">
+    <a class="navbar-brand" href="{% url 'index' %}">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Vignan_logo.png" width="30" height="30"
+        class="d-inline-block align-top" alt=""> Blog
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-                {% if user.is_authenticated %}
-                <li class="nav-item"><a class="nav-link" href="{% url 'post-create' %}">New Post</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'groups' %}">Groups</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'view_profile' %}">Profile</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
-                {% else %}
-                <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'groups' %}">Groups</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
-                {% endif %}
-            </ul>
-            <!-- <form class="form-inline my-2 my-lg-0" action="{% url 'searchposts' %}" method="GET" value="{{request.GET.q}}">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        {% if user.is_authenticated %}
+        <li class="nav-item"><a class="nav-link" href="{% url 'post-create' %}">New Post</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'groups' %}">Groups</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'view_profile' %}">Profile</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+        {% else %}
+        <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'groups' %}">Groups</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+        {% endif %}
+      </ul>
+      <!-- <form class="form-inline my-2 my-lg-0" action="{% url 'searchposts' %}" method="GET" value="{{request.GET.q}}">
                 <input class="form-control mr-sm-2" type="text" name="q" value="{{request.GET.q}}"  placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-info my-2 my-sm-0" name="submit"  type="submit" value="Search">Search</button>
             </form> -->
-        </div>
-    </nav>
+    </div>
+  </nav>
 
-    <main role="main" class="container">
-        <div class="row">
-            <div class="col">
-                {% if messages %} {% for message in messages %}
+  <main role="main" class="container">
+    <div class="row">
+      <div class="col">
+        {% if messages %} {% for message in messages %}
 
-                <div class="alert alert-{{ message.tags }}">
-                    {{ message }}
-                </div>
-                {% endfor %} {% endif %} {% block content %}{% endblock %}
-            </div>
+        <div class="alert alert-{{ message.tags }}">
+          {{ message }}
         </div>
-    </main>
-    <br>
-    <div id="sticky-footer" class="py-4 bg-secondry text-black-50">
-      <div class="container text-center">
-        <small>Copyright &copy; Your Website</small>
+        {% endfor %} {% endif %} {% block content %}{% endblock %}
       </div>
     </div>
+  </main>
+  <br>
+  <div id="sticky-footer" class="py-4 bg-secondry text-black-50">
+    <div class="container text-center">
+      <small>Copyright &copy; Dept. of CSE, VIIT</small>
+    </div>
+  </div>
 </body>
 
 </html>

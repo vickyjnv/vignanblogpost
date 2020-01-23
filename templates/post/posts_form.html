@@ -1,19 +1,19 @@
 {% extends "post/header.html"%}
 
 {% block content %}
-    <div class="content-section">
-        <h1 class="text-primary">Post</h1>
-        <form method="POST">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Blog Post</legend>
-                {{ form.as_p }}
-            </fieldset>
-            <a>
-              <button type="submit">Submit
-              </button>
-             <button type="cancel" onclick="window.location='/'">Cancel</button>
-            </a>
-        </form>
-    </div>
+<div class="content-section">
+    <h1 class="text-primary">Post</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Blog Post</legend>
+            {{ form.as_p }}
+        </fieldset>
+        <a>
+            <button type="submit">Submit
+            </button>
+            <button type="cancel" onclick="window.location='/'">Cancel</button>
+        </a>
+    </form>
+</div>
 {% endblock content %}

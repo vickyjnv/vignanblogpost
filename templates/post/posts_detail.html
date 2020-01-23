@@ -1,25 +1,25 @@
 {% extends "post/header.html" %}
 {% block content %}
-  <article class="media content-section">
-    <img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}">
-    <div class="media-body">
-      <div class="article-metadata">
-        <h2 class="article-title">{{ object.title }}</h2>
-        {% if object.user == user %}
-          <div>
-            <a class="btn btn-outline-secondary" href="{% url 'post-update' object.id %}">Update</a>
-            <a class="btn btn-outline-secondary" href="{% url 'post-delete' object.id %}">Delete</a>
-          </div>
-        {% endif %}
-        <a  href="{% url 'user-posts' object.user %}">{{ object.user }}</a>
-        </br>
-        <p class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
-        
+<article class="media content-section">
+  <img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}">
+  <div class="media-body">
+    <div class="article-metadata">
+      <h2 class="article-title">{{ object.title }}</h2>
+      {% if object.user == user %}
+      <div>
+        <a class="btn btn-outline-secondary" href="{% url 'post-update' object.id %}">Update</a>
+        <a class="btn btn-outline-secondary" href="{% url 'post-delete' object.id %}">Delete</a>
       </div>
-      {% if object.image %}
-      <img src={{ object.image.url }} width="250px">
       {% endif %}
-      <p >{{ object.context}}</p>
+      <a href="{% url 'user-posts' object.user %}">{{ object.user }}</a>
+      </br>
+      <p class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
+
     </div>
-  </article>
+    {% if object.image %}
+    <img src={{ object.image.url }} width="250px">
+    {% endif %}
+    <p>{{ object.context}}</p>
+  </div>
+</article>
 {% endblock content %}
