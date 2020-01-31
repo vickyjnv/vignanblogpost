@@ -1,6 +1,4 @@
-{% extends "post/header.html"%}
-
-{% block content %}
+{% extends "post/header.html"%} {% block content %}
 <div class="content-section">
     <h1 class="text-primary">Post</h1>
     <form method="POST" enctype='multipart/form-data'>
@@ -10,9 +8,9 @@
             {{ form.as_p }}
         </fieldset>
         <a>
-            <button type="submit">Submit
+            <button type="submit" class="btn btn-primary">Share
             </button>
-            <button type="cancel" onclick="window.location='/'">Cancel</button>
+            <button type="cancel" onclick="window.location='/'" class="btn btn-outline-info my-2 my-sm-0">Cancel</button>
         </a>
     </form>
 </div>
