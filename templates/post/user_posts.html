@@ -1,14 +1,24 @@
 {% extends "post/header.html"%} {% block content %} {% for post in posts|slice:":1" %}
 
 <div class="card shadow p-3 mb-5 bg-white rounded">
-    <h2>{{post.user}}</h2>
-    <img src="{{ post.user.userprofile.image.url }}" width="200" height="200" class="rounded float-left shadow bg-white rounded" alt="">
-    <p>First name: {{ post.user.first_name }}</p>
-    <p>Last name: {{ post.user.last_name }}</p>
-    <p>Email: {{ post.user.email }}</p>
-    <p>Bio: {{ post.user.userprofile.bio }}</p>
-    <p>Phone: {{ post.user.userprofile.phone }}</p>
-    <p>Website: {{ post.user.userprofile.website }}</p>
+    <h1>USER PROFILE</h1>
+    <tr>
+        <td>
+            <p>First name: {{ post.user.first_name }}</p>
+            <p>Last name: {{ post.user.last_name }}</p>
+            <p>Email: {{ post.user.email }}</p>
+            <p>Bio: {{ post.user.userprofile.bio }}</p>
+            <p>Phone: {{ post.user.userprofile.phone }}</p>
+            <p>Website: {{ post.user.userprofile.website }}</p>
+        </td>
+    </tr>
+    <tr class="float-left">
+        <td>
+            <img src="{{ post.user.userprofile.image.url }}" width="200" height="200" class="rounded float-left shadow bg-white rounded" alt="">
+            <h2>{{post.user}}</h2>
+        </td>
+    </tr>
+
 
 </div>
 </br>
