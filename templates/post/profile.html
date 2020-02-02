@@ -1,17 +1,25 @@
 {% extends "post/header.html" %} {% block content %}
 <br class="container">
-<h1>Profile</h1>
-<p>Username: {{ user }}</p>
-<p>First name: {{ user.first_name }}</p>
-<p>Last name: {{ user.last_name }}</p>
-<p>Email: {{ user.email }}</p>
-<p>Bio: {{ user.userprofile.bio }}</p>
-<p>Phone: {{ user.userprofile.phone }}</p>
-<p>Website: {{ user.userprofile.website }}</p>
-{% if user.userprofile.image %}
-<img src="{{ user.userprofile.image.url }}" width="240"> {% endif %}
-
-</br>
-<a href="{% url 'edit_profile' %}">Update Profile</a>
-</br>
-<a href="{% url 'edit_basic_profile' %}">Edit Profile</a> {% endblock %}
+<div class="card shadow p-3 mb-5 bg-white rounded">
+    <div>
+        <h1>Profile</h1>
+        <p>Username: {{ user }}</p>
+        <p>First name: {{ user.first_name }}</p>
+        <p>Last name: {{ user.last_name }}</p>
+        <p>Email: {{ user.email }}</p>
+        <p>Bio: {{ user.userprofile.bio }}</p>
+        <p>Phone: {{ user.userprofile.phone }}</p>
+        <p>Website: {{ user.userprofile.website }}</p>
+        {% if user.userprofile.image %}
+    </div>
+    <div class="top">
+        <img src="{{ user.userprofile.image.url }}" width="240" class="rounded shadow float-right"> {% endif %}
+    </div>
+    </br>
+    <!-- <a href="{% url 'edit_profile' %}">Update Profile</a> -->
+    <button type="submit" class="btn btn-primary" href="{% url 'edit_profile' %}">Update Profile</button>
+    </br>
+    <!-- <a href="{% url 'edit_basic_profile' %}">Edit Profile</a>   -->
+    <button type="cancel" class="btn btn-outline-info my-2 my-sm-0" href="{% url 'edit_basic_profile' %}">Edit Profile</button>
+</div>
+{% endblock %}
