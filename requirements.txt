@@ -2,3 +2,4 @@ django
 Markdown==3.1.1
 Pillow
 gunicorn==19.9.0
+django-widget-tweaks 1.4.5
