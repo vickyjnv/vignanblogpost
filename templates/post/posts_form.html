@@ -5,7 +5,10 @@
         {% csrf_token %}
         <fieldset class="form-group">
             <legend class="border-bottom mb-4">Blog Post</legend>
-            {{ form.as_p }}
+            <p >Groups : {{ form.groups }} </p>
+            <p >Title : {{ form.title }}</p>
+            <p >Context : {{ form.context }}</p>
+            <p>Image : {{ form.image }}</p>
         </fieldset>
         <a>
             <button type="submit" class="btn btn-primary">Share
@@ -14,4 +17,6 @@
         </a>
     </form>
 </div>
+
+
 {% endblock content %}
