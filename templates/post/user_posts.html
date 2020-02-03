@@ -1,29 +1,22 @@
 {% extends "post/header.html"%} {% block content %} {% for post in posts|slice:":1" %}
-
-<div class="card shadow p-3 mb-5 bg-white rounded">
-    <h1>USER PROFILE</h1>
-    <tr>
-        <td>
-            <p>First name: {{ post.user.first_name }}</p>
-            <p>Last name: {{ post.user.last_name }}</p>
-            <p>Email: {{ post.user.email }}</p>
-            <p>Bio: {{ post.user.userprofile.bio }}</p>
-            <p>Phone: {{ post.user.userprofile.phone }}</p>
-            <p>Website: {{ post.user.userprofile.website }}</p>
-        </td>
-    </tr>
-    <tr class="float-left">
-        <td>
-            <img src="{{ post.user.userprofile.image.url }}" width="200" height="200" class="rounded float-left shadow bg-white rounded" alt="">
-            <h2>{{post.user}}</h2>
-        </td>
-    </tr>
-
-
-</div>
 </br>
+<div class="card shadow  portfolio">
+    <h1>{{ post.user.first_name }} {{ post.user.last_name }}</h1>
+    <div class="bio-image">
+							<img src="{{ post.user.userprofile.image.url }}" alt="image" width="200" height="200"/>
+	</div>	
+    
+					<h1>{{post.user}}</h1>
+					<h6>{{ post.user.userprofile.bio }}</h6>
+	<a href="{{ post.user.email }}" target="_blank">Email</a>
+    <a href="callto:{{ post.user.userprofile.phone }}">{{ post.user.userprofile.phone }}</a>
+            <a href="{{ post.user.userprofile.website}}">{{ post.user.userprofile.website }}</p>
 
-{% endfor %} {% for post in posts %}
+
+{% endfor %}
+
+<h1 align="left">Posts</h1>
+ {% for post in posts %}
 
 <div class="card shadow p-3 mb-5 bg-white rounded">
     <div style="text-align: inline;">
@@ -44,10 +37,26 @@
 
 </div>
 
-{% endfor %} {% if posts.paginator.num_pages > 1 %}
+{% endfor %}
+</div>
+
+ {% if posts.paginator.num_pages > 1 %}
 
 <!-- start -->
 {% include 'post/_pagination.html' with posts=posts %}
 <!-- end -->
 
-{% endif %} {% endblock content %}
+{% endif %} 
+
+<style>
+.portfolio{
+		padding:6%;
+		text-align:center;
+	}
+	.bio-image img{
+		border-radius:50%;
+	}
+	
+</style>
+
+{% endblock content %}
