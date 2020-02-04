@@ -7,7 +7,6 @@ from django.views.generic import (
 	DetailView,
 	CreateView,
 	UpdateView,
-	DeleteView
 )
 # Create your views here.
 
@@ -29,14 +28,3 @@ class GroupListView(ListView):
 class GroupCreateView(LoginRequiredMixin, CreateView):
 	model = Com
 	fields = ['name']
-
-
-class UserListView(ListView):
-	model = Posts
-	template_name = 'groups/group_posts.html'
-	context_object_name = 'group'
-	ordering = ['-date_posted']
-
-	def get_queryset(self):
-		user = get_object_or_404(User, name=self.kwargs.get('name'))
-		return Posts.objects.filter(user=user).order_by('-date_posted')
