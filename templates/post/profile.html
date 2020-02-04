@@ -16,10 +16,8 @@
         <img src="{{ user.userprofile.image.url }}" width="240" class="rounded shadow float-right"> {% endif %}
     </div>
     </br>
-    <!-- <a href="{% url 'edit_profile' %}">Update Profile</a> -->
-    <button type="submit" class="btn btn-primary" href="{% url 'edit_profile' %}">Update Profile</button>
+    <a href="{% url 'edit_profile' %}"  class="btn btn-primary" >Update Profile</a>
     </br>
-    <!-- <a href="{% url 'edit_basic_profile' %}">Edit Profile</a>   -->
-    <button type="cancel" class="btn btn-outline-info my-2 my-sm-0" href="{% url 'edit_basic_profile' %}">Edit Profile</button>
+    <a  class="btn btn-outline-info my-2 my-sm-0" href="{% url 'edit_basic_profile' %}">Edit Profile</a>
 </div>
 {% endblock %}

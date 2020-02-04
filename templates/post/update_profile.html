@@ -7,8 +7,17 @@
         <p >Bio:    {{ form.bio }}</p>
         <p> Phone    {{ form.phone }}</p>
         <p> Website : {{ form.website }} </p>
-        <p> Image :  {{ form.image }}</p>
-        <button type="submit">Submit</button>
+        <img id="pre" width="250px">
+        <p>{{ form.image }}</p> 
+        <script>
+            window.onload = function() {
+                document.getElementById("id_image").onchange = function(event) {
+                    var output = document.getElementById('pre');
+                    output.src = URL.createObjectURL(event.target.files[0]);
+                }
+            }
+            </script>
+        <button type="submit">Update</button>
     </form>
     <br>
 </div>

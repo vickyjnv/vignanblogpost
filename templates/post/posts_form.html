@@ -8,7 +8,17 @@
             <p >Groups : {{ form.groups }} </p>
             <p >Title : {{ form.title }}</p>
             <p >Context : {{ form.context }}</p>
-            <p>Image : {{ form.image }}</p>
+            <img id="pre" width="250px">
+            <p><a id="im">Image :</a> {{ form.image }}</p> 
+            <script>
+            window.onload = function() {
+                document.getElementById("id_image").onchange = function(event) {
+                    var output = document.getElementById('pre');
+                    output.src = URL.createObjectURL(event.target.files[0]);
+                    document.getElementById("im").innerHTML = "Change Image";
+                }
+            }
+            </script>
         </fieldset>
         <a>
             <button type="submit" class="btn btn-primary">Share
