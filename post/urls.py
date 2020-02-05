@@ -2,7 +2,6 @@ from django.urls import path
 from django.contrib.auth import views as auth_views
 from django.conf import settings
 from .views import (
-	PostListView,
 	PostDetailView,
 	PostCreateView,
 	PostUpdateView,
@@ -29,6 +28,6 @@ urlpatterns = [
 	path('post/<int:pk>/delete/', PostDeleteView.as_view(), name='post-delete'),
 	path('user/<str:username>', UserListView.as_view(), name = 'user-posts'),
 	path('groups/<str:name>', GListView.as_view(), name = 'group-posts'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 
+]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns+=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

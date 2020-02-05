@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Posts
-from groups.models import Com 
+from groups.models import Com
 from django.contrib.auth.models import User
 from django.views.generic import (
 	ListView,
@@ -13,8 +13,6 @@ from django.views.generic import (
 from django.db.models import Q
 from django.contrib import messages
 from .forms import UserRegisterForm, EditProfileForm, EditBasicProfileForm
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 
 
@@ -102,7 +100,6 @@ class GListView(ListView):
 
 class PostDetailView(DetailView):
 	model = Posts
-	
 
 
 class PostCreateView(LoginRequiredMixin, CreateView):
