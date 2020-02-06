@@ -43,7 +43,7 @@ File locations
 Static files such as CSS, JavaScript or image files can be found in the
 ``vignanblogpost/static`` subdirectory.
 
-Templates can be found in the ``djangoproject/templates`` subdirectory.
+Templates can be found in the ``vignanblogpost/templates`` subdirectory.
 
 Styles
 ------
