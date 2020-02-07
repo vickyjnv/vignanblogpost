@@ -13,7 +13,7 @@ To run locally, do the usual:
 
 ## Setting up database access
 
-## Create a superuser
+### Create a superuser
 
    ./manage.py createsuperuser
 
@@ -25,4 +25,3 @@ Static files such as CSS, JavaScript or image files can be found in the
 Templates can be found in the ``vignanblogpost/templates`` subdirectory.
 
 CSS is written in `Bootstrap`.
-
