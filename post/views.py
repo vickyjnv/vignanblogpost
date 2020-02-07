@@ -22,7 +22,6 @@ def index(request):
 	page = request.GET.get('page')
 	posts = paginator.get_page(page)
 	return render(request,'post/index.html', {'posts': posts})
-	
 
 def register(request):
 	if request.method == 'POST':
@@ -88,7 +87,7 @@ class UserListView(ListView):
 
 class GListView(ListView):
 	model = Posts
-	template_name = 'post/user_posts.html'
+	template_name = 'groups/group_posts.html'
 	context_object_name = 'posts'
 	ordering = ['-date_posted']
 

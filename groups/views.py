@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from .models import Com
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import (
@@ -6,13 +5,6 @@ from django.views.generic import (
 	CreateView,
 )
 # Create your views here.
-
-def group(request):
-	context = {
-		'group' : Com.objects.all()
-	}
-	return render(request, "groups/groups.html", context)
-
 
 class GroupListView(ListView):
 	model = Com
@@ -24,4 +16,7 @@ class GroupListView(ListView):
 
 class GroupCreateView(LoginRequiredMixin, CreateView):
 	model = Com
-	fields = ['name']
+	fields = ['name','discripton']
+	def form_valid(self, form):
+		form.instance.user = self.request.user
+		return super().form_valid(form)
