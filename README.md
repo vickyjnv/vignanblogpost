@@ -6,14 +6,14 @@ To run locally, do the usual:
 
 ## Create a Python 3.5 virtualenv
 
-## Install dependencies::
+## Install dependencies
 
     pip install -r requirements.txt
 
 
 ## Setting up database access
 
-## Create a superuser::
+## Create a superuser
 
    ./manage.py createsuperuser
 
@@ -23,9 +23,6 @@ Static files such as CSS, JavaScript or image files can be found in the
 ``vignanblogpost/static`` subdirectory.
 
 Templates can be found in the ``vignanblogpost/templates`` subdirectory.
-
-Styles
-------
 
 CSS is written in `Bootstrap`.
 
