@@ -7,7 +7,7 @@
 
 <div class="card shadow p-3 mb-5 bg-white rounded">
 	<div style="text-align: inline;">
-		<img src="{{ post.user.userprofile.image.url }}" width="20" height="20">
+		<img src="{{ post.user.userprofile.image.url }}" width="20" height="20" alt="Profile Image">
 		&nbsp;
 		<a class="card-subtitle mb-2 text-muted" href="{% url 'user-posts' post.user.username %}">{{ post.user }}</a>
 	</div>
