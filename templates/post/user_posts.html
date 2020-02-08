@@ -1,4 +1,12 @@
-{% extends "post/header.html"%} {% block content %} {% for post in posts|slice:":1" %}
+{% extends "post/header.html"%} 
+
+{% block title %}User Details{% endblock %}
+
+{% block content %} 
+
+
+{% for post in posts|slice:":1" %}
+
 </br>
 <div class="card shadow  portfolio">
     <h1>{{ post.user.first_name }} {{ post.user.last_name }}</h1>

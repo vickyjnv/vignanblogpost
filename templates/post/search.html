@@ -1,9 +1,11 @@
 {% extends "post/header.html"%}
+
 {% block content %}
 
 <h1> Search </h1>
 {% if submitbutton == 'Search' and request.GET.q != '' %}
 {% if results %}
+{% block title %}Search result for {{ request.GET.q }}{% endblock %}
 <h3>Results for <b>{{ request.GET.q }}</b></h3>
 <br /><br />
 

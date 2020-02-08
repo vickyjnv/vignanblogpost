@@ -4,6 +4,7 @@ from django.views.generic import (
 	ListView,
 	CreateView,
 )
+from django.contrib import messages
 # Create your views here.
 
 class GroupListView(ListView):
@@ -18,5 +19,7 @@ class GroupCreateView(LoginRequiredMixin, CreateView):
 	model = Com
 	fields = ['name','discripton']
 	def form_valid(self, form):
+		name = form.cleaned_data.get('name')
+		messages.success(self.request, f'Group {name} Created!')
 		form.instance.user = self.request.user
 		return super().form_valid(form)
