@@ -1,30 +1,30 @@
-{% extends "post/header.html"%} {% block content %}
-{% block title %}Creat Post{% endblock %}
-<div class="content-section">
-    <h1 class="text-primary">Post</h1>
+{% extends "post/header.html"%} {% block content %} {% block title %}Creat Post{% endblock %}
+<div class="content-section card shadow  portfolio">
+    <h1 class="text-primary">&nbsp;Post</h1>
     <form method="POST" enctype='multipart/form-data'>
         {% csrf_token %}
         <fieldset class="form-group">
-            <legend class="border-bottom mb-4">Blog Post</legend>
-            <p >Groups : {{ form.groups }} </p>
-            <p >Title : {{ form.title }}</p>
-            <p >Context : {{ form.context }}</p>
+            <legend class="border-bottom mb-4">&nbsp;Blog Post</legend>
+            <p>&nbsp;Groups : {{ form.groups }} </p>
+            <p>&nbsp;Title : {{ form.title }}</p>
+            <p>&nbsp;Context : {{ form.context }}</p>
             <img id="pre" width="250px">
-            <p><a id="im">Image :</a> {{ form.image }}</p> 
+            <p><a id="im">&nbsp;Image :</a> {{ form.image }}</p>
             <script>
-            window.onload = function() {
-                document.getElementById("id_image").onchange = function(event) {
-                    var output = document.getElementById('pre');
-                    output.src = URL.createObjectURL(event.target.files[0]);
-                    document.getElementById("im").innerHTML = "Change Image";
+                window.onload = function() {
+                    document.getElementById("id_image").onchange = function(event) {
+                        var output = document.getElementById('pre');
+                        output.src = URL.createObjectURL(event.target.files[0]);
+                        document.getElementById("im").innerHTML = "Change Image";
+                    }
                 }
-            }
             </script>
         </fieldset>
+        &nbsp;
         <a>
             <button type="submit" class="btn btn-primary">Share
             </button>
-            <button type="cancel" onclick="window.location='/'" class="btn btn-outline-info my-2 my-sm-0">Cancel</button>
+            <button type="cancel" onclick="window.location='/'" class="btn btn-outline-info my-2 my-sm-0">&nbsp;Cancel</button>
         </a>
     </form>
 </div>
