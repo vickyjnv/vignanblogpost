@@ -1,5 +1,13 @@
 {% extends "post/header.html"%} {% block content %} 
-<h1>Posts</h1>
+
+{%for group in groups%}
+<h2>{{group}}</h2>
+<a>Created by : {{group.user}}</a>
+<img src="{{ group.user.userprofile.image.url }}" width="200" height="200"> &nbsp;
+
+<h4>Group discription  :{{group.discripton}}</h4>
+{%endfor%}
+
  {% for post in posts %}
 
 <div class="card shadow p-3 mb-5 bg-white rounded">

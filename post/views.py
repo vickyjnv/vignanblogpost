@@ -8,7 +8,7 @@ from django.views.generic import (
 	DetailView,
 	CreateView,
 	UpdateView,
-	DeleteView
+	DeleteView,
 )
 from django.db.models import Q
 from django.contrib import messages
@@ -86,10 +86,15 @@ class UserListView(ListView):
 		return Posts.objects.filter(user=user).order_by('-date_posted')
 
 class GListView(ListView):
-	model = Posts
+	model = Posts, Com
 	template_name = 'groups/group_posts.html'
 	context_object_name = 'posts'
-	ordering = ['-date_posted']
+
+	def get_context_data(self, **kwargs):
+		name = get_object_or_404(Com, name=self.kwargs.get('name'))
+		context = super(GListView, self).get_context_data(**kwargs)
+		context['groups'] = Com.objects.filter(name = name)
+		return context
 
 	def get_queryset(self):
 		name = get_object_or_404(Com, name=self.kwargs.get('name'))
