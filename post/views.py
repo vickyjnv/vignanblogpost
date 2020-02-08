@@ -110,6 +110,8 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 	model = Posts
 	fields = ['groups','title', 'context','image']
 	def form_valid(self, form):
+		title = form.cleaned_data.get('title')
+		messages.success(self.request, f'Post with title {title} Created!')
 		form.instance.user = self.request.user
 		return super().form_valid(form)
 
