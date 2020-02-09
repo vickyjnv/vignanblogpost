@@ -1,8 +1,6 @@
-{% extends "post/header.html"%}
-{% block title %}Groups{% endblock %}
- {% block content %}
+{% extends "post/header.html"%} {% block title %}Groups{% endblock %} {% block content %}
 </br>
-<table>
+<table class="card shadow portfolio">
     <tr>
         <td>
             <h1> List Of Groups:</h1>
@@ -12,7 +10,7 @@
         </td>
     </tr>
 </table>
-<ul class="list-group">
+<ul class="list-group card shadow portfolio">
     {% for g in group %}
     <a href="{% url 'groups' %}{{ g.name }}" class="list-group-item">{{ g.name }}</a> {% endfor %}
 </ul>

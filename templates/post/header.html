@@ -11,20 +11,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <title>
-    {% block title %}{% endblock %}
-  </title>
+        {% block title %}{% endblock %}
+    </title>
 </head>
 
 <body>
 
 
-     <nav class="navbar navbar-default navbar-fixed-top navbar-expand-lg shadow navbar-light bg-white">
-    <a class="navbar-brand" href="{% url 'index' %}">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Vignan_logo.png" width="30" height="30"
-        class="d-inline-block align-top" alt=""> Blog
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-default navbar-fixed-top navbar-expand-lg shadow navbar-light bg-white">
+        <a class="navbar-brand" href="{% url 'index' %}">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Vignan_logo.png" width="30" height="30" class="d-inline-block align-top" alt=""> Blog
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -52,12 +50,20 @@
     <main role="main" class="container">
         <div class="row">
             <div class="col">
+                <p>space for group</p>
+            </div>
+            <!-- <div class="row"> -->
+            <div class="col-10">
                 {% if messages %} {% for message in messages %}
 
                 <div class="alert alert-{{ message.tags }}">
                     {{ message }}
                 </div>
                 {% endfor %} {% endif %} {% block content %}{% endblock %}
+
+            </div>
+            <div class="col">
+                space for something else
             </div>
         </div>
     </main>
