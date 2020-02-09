@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'imagekit',
 ]
 
 MIDDLEWARE = [

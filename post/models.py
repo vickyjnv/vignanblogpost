@@ -4,6 +4,10 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from groups.models import Com
 from django.db.models.signals import post_save
+from imagekit.models.fields import ProcessedImageField , ImageSpecField
+from imagekit.processors import ResizeToFill
+
+
 # Create your models here.
 
 
@@ -27,7 +31,12 @@ class UserProfile(models.Model):
     bio = models.CharField(max_length=100, default='',blank = True)
     website = models.URLField(default='',blank = True)
     phone = models.IntegerField(default=0,blank = True)
-    image = models.ImageField(upload_to='profile_image',default = 'octocat.png')
+    #image = models.ImageField(upload_to='profile_image',default = 'octocat.png')
+    image = ProcessedImageField(upload_to='profile_image',processors=[ResizeToFill(200,200)], blank=True,format='JPEG', options={'quality': 90})
+    thumbnail = ImageSpecField(source='image',
+                                      processors=[ResizeToFill(50, 50)],
+                                      format='JPEG',
+                                      options={'quality': 100})
 
     def __str__(self):
         return self.user.username
