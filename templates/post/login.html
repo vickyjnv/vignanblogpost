@@ -10,6 +10,7 @@
                         <form class="form-signin" method="POST">
                             {% csrf_token %} 
                             {{ form.errors }}
+                             {{ form.help_text }}
                              <div class="form-label-group">
                              {% render_field form.username placeholder=form.username.label class+="form-control"  %}
                                 <label for="id_username">User name</label> 
