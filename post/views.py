@@ -18,10 +18,11 @@ from django.core.paginator import Paginator
 
 def index(request):
 	posts = Posts.objects.all().order_by('-date_posted')
+	groups = Com.objects.all()
 	paginator = Paginator(posts, 10)
 	page = request.GET.get('page')
 	posts = paginator.get_page(page)
-	return render(request,'post/index.html', {'posts': posts})
+	return render(request,'post/index.html', {'posts': posts , 'groups':groups})
 
 def register(request):
 	if request.method == 'POST':
@@ -111,6 +112,11 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 	fields = ['groups','title', 'context','image']
 	def form_valid(self, form):
 		title = form.cleaned_data.get('title')
+		group = form.cleaned_data.get('groups')
+		obj = Com.objects.filter(name=group)
+		val = obj.first().count
+		val+=1
+		obj.update(count=val)
 		messages.success(self.request, f'Post with title {title} Created!')
 		form.instance.user = self.request.user
 		return super().form_valid(form)

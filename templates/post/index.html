@@ -2,6 +2,19 @@
 {% block title %}Vignan Blog Post{% endblock %}
 {% block content %}
 
+<div class="row">
+<div class="d-none d-xl-block col">
+<h2>Groups</h2>
+                <ul class="list-group">
+				{% for group in groups%}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                   <a href="{% url 'groups' %}{{ group.name }}"> {{group}} 
+                    <span class="badge badge-primary badge-pill">{{ group.count }}</span> </a>
+                </li>
+				{% endfor %}
+    		</ul>
+</div>
+<div class="col-xl-9">
 </br>
 {% for post in posts %}
 
@@ -35,4 +48,10 @@
 {% endif %}
 
 
+</div>
+<div class="d-none d-xl-block col">
+<h2>Events</h2>
+                <div class="card" >Events</div>
+</div>
+</div>
 {% endblock content %}

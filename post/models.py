@@ -32,7 +32,7 @@ class UserProfile(models.Model):
     website = models.URLField(default='',blank = True)
     phone = models.IntegerField(default=0,blank = True)
     #image = models.ImageField(upload_to='profile_image',default = 'octocat.png')
-    image = ProcessedImageField(default="octocat.png", upload_to='profile_image',processors=[ResizeToFill(200,200)], blank=True,format='JPEG', options={'quality': 90})
+    image = ProcessedImageField(default="octocat.png", upload_to='profile_image',processors=[ResizeToFill(200,200)], blank=False,format='JPEG', options={'quality': 90})
     thumbnail = ImageSpecField(source='image', processors=[ResizeToFill(50, 50)],format='JPEG',options={'quality': 100})
 
     def __str__(self):
