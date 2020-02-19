@@ -1,6 +1,8 @@
 # Vignan
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b9bdd4c36bd7410abfb992069a25b610)](https://app.codacy.com/manual/oscvizag/vignanblogpost?utm_source=github.com&utm_medium=referral&utm_content=saibhaskar24/vignanblogpost&utm_campaign=Badge_Grade_Dashboard)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/cef97503b1a64949a0876a0c27b2c969)](https://app.codacy.com/manual/oscvizag/vignanblogpost?utm_source=github.com&utm_medium=referral&utm_content=saibhaskar24/vignanblogpost&utm_campaign=Badge_Grade_Dashboard)
+
+[![Known Vulnerabilities](https://snyk.io/test/github/saibhaskar24/vignanblogpost/badge.svg?targetFile=requirements.txt)](https://snyk.io/test/github/saibhaskar24/vignanblogpost?targetFile=requirements.txt)
 
 To run locally, do the usual:
 
