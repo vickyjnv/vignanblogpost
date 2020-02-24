@@ -1,7 +1,7 @@
 {% extends "post/header.html" %}
 {% block title %}Confirm Delete post{% endblock %}
 {% block content %}
-<div class="content-section">
+<div class="content-section container">
     <form method="POST">
         {% csrf_token %}
         <fieldset class="form-group">

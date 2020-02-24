@@ -1,5 +1,5 @@
-{% extends "post/header.html"%} {% block content %} {% block title %}Creat Post{% endblock %}
-<div class="content-section card shadow  portfolio">
+{% extends "post/header.html"%} {% block title %}Creat Post{% endblock %} {% block content %} 
+<div class="content-section card shadow  portfolio container">
     <h1 class="text-primary">&nbsp;Post</h1>
     <form method="POST" enctype='multipart/form-data'>
         {% csrf_token %}

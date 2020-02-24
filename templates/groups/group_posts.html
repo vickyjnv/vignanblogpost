@@ -2,6 +2,8 @@
 {% block title %}Group Details{% endblock %}
  {% block content %} 
 
+<div class="container">
+
 {%for group in groups%}
 <h2>{{group}}</h2>
 <a>Created by : {{group.user}}</a>
@@ -52,5 +54,5 @@
 	}
 	
 </style>
-
+<div>
 {% endblock content %}
