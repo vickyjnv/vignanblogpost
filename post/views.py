@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Posts
+from django.contrib import messages
 from groups.models import Com
 from django.contrib.auth.models import User
 from django.views.generic import (
@@ -12,7 +13,7 @@ from django.views.generic import (
 )
 from django.db.models import Q
 from django.contrib import messages
-from .forms import UserRegisterForm, EditProfileForm, EditBasicProfileForm
+from .forms import UserRegisterForm, EditProfileForm, EditBasicProfileForm, CommentForm
 from django.core.paginator import Paginator
 
 
@@ -23,6 +24,22 @@ def index(request):
 	page = request.GET.get('page')
 	posts = paginator.get_page(page)
 	return render(request,'post/index.html', {'posts': posts , 'groups':groups})
+
+
+def add_comment_to_post(request, pk):
+    post = get_object_or_404(Posts, id=pk)
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.author = request.user
+            comment.save()
+            return redirect('post-detail', pk=pk)
+    else:
+        form = CommentForm()
+    return render(request, 'posts/add_comment_to_post.html', {'form': form})
+
 
 def register(request):
 	if request.method == 'POST':
