@@ -1,0 +1,10 @@
+{% extends 'post/header.html' %}
+
+{% block content %}
+{{ form.errors}}
+    <h1>New comment</h1>
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.text }}
+        <button type="submit" class="save btn btn-default">ADD</button>
+    </form>
+{% endblock %}

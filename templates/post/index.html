@@ -34,7 +34,7 @@
 		<p class="card-text">{{ post.context }}</p>
 
 	</div>
-
+	<a href="{% url 'post-detail' post.id %}">Comments: {{ post.comments.count }}</a>
 </div>
 
 {% endfor %}

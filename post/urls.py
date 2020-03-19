@@ -28,6 +28,7 @@ urlpatterns = [
 	path('post/<int:pk>/delete/', PostDeleteView.as_view(), name='post-delete'),
 	path('user/<str:username>', UserListView.as_view(), name = 'user-posts'),
 	path('groups/<str:name>', GListView.as_view(), name = 'group-posts'),
+	path('post/<int:pk>/comment/', views.add_comment_to_post, name='add_comment_to_post'),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns+=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
