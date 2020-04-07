@@ -1,8 +1,6 @@
-{% extends "post/header.html" %} 
-{% block title %}Profile{% endblock %}
-{% block content %}
+{% extends "post/header.html" %} {% block title %}Profile{% endblock %} {% block content %}
 <br>
-<div class="card shadow p-3 mb-5 bg-white rounded container">
+<!--<div class="card shadow p-3 mb-5 bg-white rounded container">
     <div>
         <h1>Profile</h1>
         <p>Username: {{ user }}</p>
@@ -18,8 +16,62 @@
         <img src="{{ user.userprofile.image.url }}" width="240" class="rounded shadow float-right"> {% endif %}
     </div>
     </br>
-    <a href="{% url 'edit_profile' %}"  class="btn btn-primary" >Update Profile</a>
+    <a href="{% url 'edit_profile' %}" class="btn btn-primary">Update Profile</a>
     </br>
-    <a  class="btn btn-outline-info my-2 my-sm-0" href="{% url 'edit_basic_profile' %}">Edit Profile</a>
+    <a class="btn btn-outline-info my-2 my-sm-0" href="{% url 'edit_basic_profile' %}">Edit Profile</a>
+</div> -->
+
+
+
+<div class="container">
+    <div class="span3 well">
+        <center>
+            <a href="#aboutModal" data-toggle="modal" data-target="#myModal"><img src="{{ user.userprofile.image.url }}" name="aboutme" width="140" height="140" class="img-circle shadow rounded-circle"></a>
+            <h3>{{ user }}</h3>
+            <em>click on image for more info</em>
+        </center>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title" id="myModalLabel">More About {{ user }}</h4>
+                </div>
+                <div class="modal-body">
+                    <center>
+                        <img src="{{ user.userprofile.image.url }}" name="aboutme" width="240" height="240" border="0" class="img-circle"></a>
+                        <h3 class="media-heading">{{ user }} </h3>
+                        <!-- <span><strong>Skills: </strong></span>
+                        <span class="label label-warning">HTML5/CSS</span>
+                        <span class="label label-info">Adobe CS 5.5</span>
+                        <span class="label label-info">Microsoft Office</span>
+                        <span class="label label-success">Windows XP, Vista, 7</span> -->
+                        <p>First name: {{ user.first_name }}</p>
+                        <p>Last name: {{ user.last_name }}</p>
+                        <p>Email: {{ user.email }}</p>
+                        <p>Bio: {{ user.userprofile.bio }}</p>
+                        <p>Phone: {{ user.userprofile.phone }}</p>
+                        <p>Website:{{ user.userprofile.website }} </p>
+                    </center>
+                    <hr>
+                    <center>
+                        <p class="text-left"><strong>Bio: </strong><br> {{ user.userprofile.bio }}</p>
+                        <br>
+                    </center>
+                </div>
+                <a href="{% url 'edit_profile' %}" type="button" class="btn btn-primary">Update Profile</a>
+                </br>
+                <a class="btn btn-outline-info my-2 my-sm-0" type="button" href="{% url 'edit_basic_profile' %}">Edit Profile</a>
+                <div class="modal-footer">
+                    <center>
+                        <button type="button" class="btn btn-default border-dark" data-dismiss="modal">I've heard enough about {{ user }}</button>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
 {% endblock %}

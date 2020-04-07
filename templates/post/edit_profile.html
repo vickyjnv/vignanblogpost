@@ -1,20 +1,57 @@
-{% extends "post/header.html"%}
-
-{% block title %}Edit Profile{% endblock %}
-{% block content %}
+{% extends "post/header.html"%} {% block title %}Edit Profile{% endblock %} {% block content %}
 
 <div class="container">
     <form method="post" enctype='multipart/form-data'>
         {% csrf_token %}
-        <p >Email :    {{ form.email }}</p>
-        <p> First Name     {{ form.first_name }}</p>
+        <p>Email : {{ form.email }}</p>
+        <p> First Name {{ form.first_name }}</p>
         <p> Last Name : {{ form.last_name }} </p>
         <button type="submit">Submit</button>
         <button type="cancel" onclick="window.location='/'">Cancel</button>
     </form>
 
 </div>
-
-
+<!-- 
+<div class="container">
+        <div class="span3 well">
+            <center>
+                <a href="#aboutModal" data-toggle="modal" data-target="#myModal"><img src="{{ post.user.userprofile.thumbnail.url }}" name="aboutme" width="140" height="140" class="img-circle"></a>
+                <h3>{{ user }}</h3>
+                <em> Click on Image to see more</em>
+            </center>
+        </div> -->
+<!-- Modal -->
+<!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                        <h4 class="modal-title" id="myModalLabel">More About {{ user }} </h4>
+                    </div>
+                    <div class="modal-body">
+                        <center>
+                            <img src="{{ post.user.userprofile.thumbnail.url }}" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
+                            <h3 class="media-heading">{{ user }}</h3>
+                            <span><strong>Skills: </strong></span>
+                            <span class="label label-warning">HTML5/CSS</span>
+                            <span class="label label-info">Adobe CS 5.5</span>
+                            <span class="label label-info">Microsoft Office</span>
+                            <span class="label label-success">Windows XP, Vista, 7</span>
+                        </center>
+                        <hr>
+                        <center>
+                            <p class="text-left"><strong>Bio: </strong><br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sem dui, tempor sit amet commodo a, vulputate vel tellus.</p>
+                            <br>
+                        </center>
+                    </div>
+                    <div class="modal-footer">
+                        <center>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">I've heard enough about Joe</button>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div> -->
 
 {% endblock content %}
