@@ -226,7 +226,7 @@ def searchposts(request):
 
 DEFAULT_FROM_EMAIL = "saibaaskar24091999@gmail.com"
 class ResetPasswordRequestView(FormView):
-    template_name = "test_template.html" 
+    template_name = "test_template.html"
     success_url = '/login'
     form_class = PasswordResetRequestForm
 
@@ -256,7 +256,7 @@ class ResetPasswordRequestView(FormView):
                             'protocol': 'http',
                             }
                         subject_template_name='password_reset_subject.txt'
-                        email_template_name='password_reset_email.html'			
+                        email_template_name='password_reset_email.html'
                         subject = loader.render_to_string(subject_template_name, c)
                         subject = ''.join(subject.splitlines())
                         email = loader.render_to_string(email_template_name, c)
