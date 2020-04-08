@@ -110,6 +110,6 @@ LOGIN_URL = 'login'
 DEFAULT_FROM_EMAIL = 'saibaaskar24091999@gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'saibaaskar24091999@gmail.com'
+EMAIL_HOST_USER = 'blogviit@gmail.com'
 EMAIL_HOST_PASSWORD = '*'
 EMAIL_PORT = 587
