@@ -9,16 +9,38 @@
 
 </br>
 <div class="card shadow  portfolio">
-    <h1>{{ post.user.first_name }} {{ post.user.last_name }}</h1>
     <div class="bio-image">
-        <img src="{{ post.user.userprofile.image.url }}" alt="image" width="200" height="200"  />
+        <a href="#aboutModal" data-toggle="modal" data-target="#myModal"><img src="{{ post.user.userprofile.image.url }}" alt="image" width="200" height="200"  /></a>
+        <h1>{{ post.user.first_name }} {{ post.user.last_name }}</h1>
+        <em>click on image for more info</em>
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title" id="myModalLabel" >About {{post.user}}</h4>
+                </div>
+                <div class="modal-body">
+                    <center>
+                        <img src="{{ post.user.userprofile.image.url }}" name="aboutme" width="240" height="240" border="0" class="img-circle"></a>
+                        <h3 class="media-heading">{{post.user}}</h3>
+                        <p>Name : {{ post.user.first_name }} {{ post.user.last_name }}</p>
+                        <p>Email: {{ post.user.email }}</p>
+                        <p>Phone: {{ post.user.userprofile.phone }}</p>
+                    </center>
+                    <hr>
+                    <center>
+                        <p class="text-left"><strong>Bio: </strong><br> {{ post.user.userprofile.bio }}</p>
+                        <p class="text-left"><strong>Website: </strong> <a href="{{ post.user.userprofile.website }}">{{ post.user.userprofile.website }}</a></p>
+                        <br>
+                    </center>
+                </div>
+            </div>
+        </div>
     </div>
 
     <h1>{{post.user}}</h1>
-    <h6>{{ post.user.userprofile.bio }}</h6>
-    <a href="{{ post.user.email }}" target="_blank">Email</a>
-    <a href="callto:{{ post.user.userprofile.phone }}">{{ post.user.userprofile.phone }}</a>
-    <a href="{{ post.user.userprofile.website}}">{{ post.user.userprofile.website }}</p>
 
 
 {% endfor %}
