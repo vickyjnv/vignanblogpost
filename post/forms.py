@@ -6,6 +6,8 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField(required=True)
+    first_name = forms.CharField(required=True)
+    last_name = forms.CharField(required=True)
     class Meta:
         model = User
         fields = ( 'username',
@@ -28,7 +30,8 @@ class UserRegisterForm(UserCreationForm):
         return user
 
 class EditProfileForm(UserChangeForm):
-     class Meta:
+    image = forms.ImageField(required=True)
+    class Meta:
         model = UserProfile
         fields = (
             'bio',
@@ -38,18 +41,17 @@ class EditProfileForm(UserChangeForm):
         )
 
 class EditBasicProfileForm(UserChangeForm):
+    first_name = forms.CharField(required=True)
+    last_name = forms.CharField(required=True)
     class Meta:
         model = User
         fields = (
-            'email',
             'first_name',
             'last_name',
-            'password'
         )
 
 
 class CommentForm(forms.ModelForm):
-
     class Meta:
         model = Comment
         fields = ('text',)

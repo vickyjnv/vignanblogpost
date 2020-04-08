@@ -19,6 +19,7 @@ from django.views.generic import (
 	DeleteView,
 	FormView,
 )
+from django.contrib.auth.decorators import login_required
 from django import forms
 from django.template import loader
 from django.contrib.auth.tokens import default_token_generator
@@ -39,7 +40,7 @@ def index(request):
 	posts = paginator.get_page(page)
 	return render(request,'post/index.html', {'posts': posts , 'groups':groups})
 
-
+@login_required
 def add_comment_to_post(request, pk):
     post = get_object_or_404(Posts, id=pk)
     if request.method == "POST":
@@ -96,6 +97,7 @@ def activate(request, uidb64, token):
         messages.success(request, f'Activation link is invalid!')
     return redirect('index')
 
+@login_required
 def view_profile(request, pk=None):
     if pk:
         user = User.objects.get(pk=pk)
@@ -104,6 +106,7 @@ def view_profile(request, pk=None):
     args = {'user': user}
     return render(request, 'post/profile.html', args)
 
+@login_required
 def edit_profile(request):
     if request.method == 'POST':
         form = EditProfileForm(request.POST,request.FILES, instance=request.user.userprofile)
@@ -116,6 +119,7 @@ def edit_profile(request):
         args = {'form': form}
         return render(request, 'post/update_profile.html', args)
 
+@login_required
 def edit_basic_profile(request):
     if request.method == 'POST':
         form = EditBasicProfileForm(request.POST, instance=request.user)

@@ -1,4 +1,4 @@
-django==2.1.15
+django
 Markdown==3.1.1
 Pillow
 gunicorn==19.10.0
