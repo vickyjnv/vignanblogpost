@@ -1,5 +1,10 @@
-{# test template #}
-<!-- code for displaying success or error message in template -->
+{% extends "post/header.html"%}
+{% block title %} Reset Password{% endblock %}
+{% block content %}
+<br><br>
+<h1 class="text-center">Reset Password</h1>
+<div class="card container" >
+<br>
 {% if messages %}
 <ul class="messages">
     {% for message in messages %}
@@ -13,6 +18,10 @@
 
     {% csrf_token %}
     {{ form.as_p }}
-
-    <input type="submit" value="Submit" />
+    <center>
+    <input type="submit" class="btn btn-primary"  value="Submit" />
+    </center>
 </form>
+
+</div>
+{% endblock %}
