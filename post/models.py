@@ -7,6 +7,7 @@ from django.db.models.signals import post_save
 from imagekit.models.fields import ProcessedImageField , ImageSpecField
 from imagekit.processors import ResizeToFill
 
+User._meta.get_field('email')._unique = True
 
 # Create your models here.
 
@@ -40,7 +41,7 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete = models.CASCADE)
     bio = models.CharField(max_length=100, default='',blank = True)
     website = models.URLField(default='',blank = True)
-    phone = models.IntegerField(default=0,blank = True)
+    phone = models.CharField( max_length=15, blank=True) # validators should be a list
     #image = models.ImageField(upload_to='profile_image',default = 'octocat.png')
     image = ProcessedImageField(default="octocat.png", upload_to='profile_image',processors=[ResizeToFill(200,200)], blank=False,format='JPEG', options={'quality': 90})
     thumbnail = ImageSpecField(source='image', processors=[ResizeToFill(50, 50)],format='JPEG',options={'quality': 100})

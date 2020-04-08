@@ -39,6 +39,7 @@ def index(request):
 	posts = paginator.get_page(page)
 	return render(request,'post/index.html', {'posts': posts , 'groups':groups})
 
+
 def add_comment_to_post(request, pk):
     post = get_object_or_404(Posts, id=pk)
     if request.method == "POST":
@@ -66,7 +67,7 @@ def register(request):
 			message = render_to_string('acc_active_email.html', {
                 'user': user,
                 'domain': current_site.domain,
-                'uid':urlsafe_base64_encode(force_bytes(user.pk)).decode(),
+                'uid':urlsafe_base64_encode(force_bytes(user.pk)),
                 'token':account_activation_token.make_token(user),
             })
 			to_email = form.cleaned_data.get('email')
@@ -250,7 +251,7 @@ class ResetPasswordRequestView(FormView):
                             'email': user.email,
                             'domain': request.META['HTTP_HOST'],
                             'site_name': 'VIIT Blog',
-                            'uid': urlsafe_base64_encode(force_bytes(user.pk)).decode(),
+                            'uid': urlsafe_base64_encode(force_bytes(user.pk)),
                             'user': user,
                             'token': default_token_generator.make_token(user),
                             'protocol': 'http',
@@ -275,7 +276,7 @@ class ResetPasswordRequestView(FormView):
                         'email': user.email,
                         'domain': request.META['HTTP_HOST'],
                         'site_name': 'VIIT Blog',
-                        'uid': urlsafe_base64_encode(force_bytes(user.pk)).decode(),
+                        'uid': urlsafe_base64_encode(force_bytes(user.pk)),
                         'user': user,
                         'token': default_token_generator.make_token(user),
                         'protocol': 'http',

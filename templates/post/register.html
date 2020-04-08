@@ -11,13 +11,12 @@
                 <div class="card card-signin my-5">
                     <div class="card-body">
                         <h5 class="card-title text-center">Register</h5>
+                        {{ form.errors}}
+                             {{ form.help_text }}
                         <form class="form-signin" method="POST">
                             {% csrf_token %}
                              <div class="form-label-group">
-                             {% for error in form.errors %}
-                            <p style="color: red">{{ error }}</p>
-                            {% endfor %}
-                             {{ form.help_text }}
+                             
                                 {% render_field form.username placeholder=form.username.label class+="form-control"  %}
                                 <label for="id_username">Username</label>
                             </div>
