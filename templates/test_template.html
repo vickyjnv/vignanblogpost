@@ -1,27 +1,25 @@
-{% extends "post/header.html"%}
-{% block title %} Reset Password{% endblock %}
-{% block content %}
+{% extends "post/header.html"%} {% block title %} Reset Password{% endblock %} {% block content %}
 <br><br>
 <h1 class="text-center">Reset Password</h1>
-<div class="card container" >
-<br>
-{% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li>{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endfor %}
-    {% endif %}
-</ul>
+<div class="card shadow border-info container rounded-pill">
+    <br> {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li>{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %} {% endif %}
+    </ul>
 
-<!-- Form rendering code for template -->
-<form action="" method="post">
-
-    {% csrf_token %}
-    {{ form.as_p }}
+    <!-- Form rendering code for template -->
     <center>
-    <input type="submit" class="btn btn-primary"  value="Submit" />
+        <form action="" method="post">
+
+            {% csrf_token %} {{ form.as_p }}
+            <center>
+                <input type="submit" class="btn btn-primary rounded-pill" value="Submit" />
+            </center>
     </center>
-</form>
+    <br>
+    </form>
 
 </div>
 {% endblock %}
