@@ -66,6 +66,16 @@ DATABASES = {
     }
 }
 
+# DATABASES = {
+#     'default': {
+#         'NAME': 'my_database',
+#         'ENGINE': 'sqlserver_ado',
+#         'HOST': 'dbserver\\ss2012',
+#         'USER': '',
+#         'PASSWORD': '',
+#     }
+# }
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
