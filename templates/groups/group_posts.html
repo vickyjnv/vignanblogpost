@@ -27,7 +27,7 @@
         <small>{{ post.date_posted|date:"F d, Y" }}</small>
         </br>
         </br>
-        <p class="card-text">{{ post.context }}</p>
+        <p class="card-text">{{ post.context|truncatewords:"30" }}</p>
 
     </div>
 <a href="{% url 'post-detail' post.id %}">Comments: {{ post.comments.count }}</a>
