@@ -73,8 +73,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'viitblog',
-        'USER': '',
-        'PASSWORD': '',
+        'USER': 'bhaskar',
+        'PASSWORD': 'Sai@24091999',
         'HOST': 'localhost',
         'PORT': '',
     }
@@ -133,5 +133,5 @@ DEFAULT_FROM_EMAIL = 'saibaaskar24091999@gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'blogviit@gmail.com'
-EMAIL_HOST_PASSWORD = 'Viit@blog'
+EMAIL_HOST_PASSWORD = 'Biit@vlog'
 EMAIL_PORT = 587
