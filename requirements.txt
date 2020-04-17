@@ -5,3 +5,4 @@ gunicorn==19.10.0
 django-widget-tweaks==1.4.5
 django-imagekit
 six
+django_heroku

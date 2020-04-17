@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'imagekit',
+    'whitenoise.runserver_nostatic',
 ]
 
 MIDDLEWARE = [
@@ -36,8 +37,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 ROOT_URLCONF = 'mysite.urls'
 
 TEMPLATES = [
@@ -65,16 +68,10 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
-# DATABASES = {
-#     'default': {
-#         'NAME': 'my_database',
-#         'ENGINE': 'sqlserver_ado',
-#         'HOST': 'dbserver\\ss2012',
-#         'USER': '',
-#         'PASSWORD': '',
-#     }
-# }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -108,7 +105,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 STATICFILES_DIRS = (
-                os.path.join(BASE_DIR,'staticfiles'), 
+    os.path.join(BASE_DIR,'staticfiles'), 
 )
 
 MEDIA_URL = '/media/'
