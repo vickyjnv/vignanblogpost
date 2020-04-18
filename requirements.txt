@@ -6,4 +6,4 @@ django-widget-tweaks==1.4.5
 django-imagekit
 six
 django-storages[azure]
-dj-database-url
+django_heroku
