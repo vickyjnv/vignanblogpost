@@ -5,6 +5,7 @@ from django.views.generic import (
 	CreateView,
 )
 from django.contrib import messages
+from django.shortcuts import render
 # Create your views here.
 
 class GroupListView(ListView):
@@ -23,3 +24,7 @@ class GroupCreateView(LoginRequiredMixin, CreateView):
 		messages.success(self.request, f'Group {name} Created!')
 		form.instance.user = self.request.user
 		return super().form_valid(form)
+
+def error_404_view(request, exception):
+	return render(request,'error.html')
+
