@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'imagekit',
     'whitenoise.runserver_nostatic',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -115,6 +116,16 @@ USE_L10N = True
 
 USE_TZ = True
 
+DEFAULT_FILE_STORAGE = 'mysite.custom_azure.AzureMediaStorage'
+STATICFILES_STORAGE = 'mysite.custom_azure.AzureStaticStorage'
+
+STATIC_LOCATION = "static"
+MEDIA_LOCATION = "media"
+
+AZURE_ACCOUNT_NAME = "viitblog"
+AZURE_CUSTOM_DOMAIN = f'{AZURE_ACCOUNT_NAME}.blob.core.windows.net'
+STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
+MEDIA_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{MEDIA_LOCATION}/'
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
@@ -129,7 +140,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'post/media')
 LOGIN_REDIRECT_URL = 'index'
 LOGIN_URL = 'login'
 
-DEFAULT_FROM_EMAIL = 'saibaaskar24091999@gmail.com'
+DEFAULT_FROM_EMAIL = 'blogviit@gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'blogviit@gmail.com'
