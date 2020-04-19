@@ -144,5 +144,5 @@ DEFAULT_FROM_EMAIL = 'blogviit@gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'blogviit@gmail.com'
-EMAIL_HOST_PASSWORD = 'Biit@vlog'
+EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
 EMAIL_PORT = 587
