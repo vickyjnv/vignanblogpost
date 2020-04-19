@@ -6,7 +6,7 @@ from django.contrib import messages
 from groups.models import Com
 from django.contrib.auth.models import User
 from django.template.loader import render_to_string
-from django.contrib.auth import login, authenticate ,get_user_model
+from django.contrib.auth import login ,get_user_model
 from .tokens import account_activation_token
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_text
@@ -23,9 +23,7 @@ from django.contrib.auth.decorators import login_required
 from django import forms
 from django.template import loader
 from django.contrib.auth.tokens import default_token_generator
-from django.http import HttpResponse
 from django.db.models import Q
-from django.contrib import messages
 from .forms import UserRegisterForm, EditProfileForm, EditBasicProfileForm, CommentForm ,PasswordResetRequestForm
 from django.core.paginator import Paginator
 from django.core.validators import validate_email
