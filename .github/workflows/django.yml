@@ -26,5 +26,9 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: Run Tests
+      env:
+        EMAIL_HOST_PASSWORD : 12345
+        ACCOUNT_KEY1 : abcd
+        ACCOUNT_KEY2 : abcd
       run: |
         python manage.py test
