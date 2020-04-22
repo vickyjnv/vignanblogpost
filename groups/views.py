@@ -31,10 +31,10 @@ class GroupCreateView(LoginRequiredMixin, CreateView):
 		return super().form_valid(form)
 
 def error_404_view(request, exception):
-	return render(request,'error.html')
+	return render(request,'error404.html')
 
 def error_500_view(request):
-	return render(request,'error.html')
+	return render(request,'error500.html')
 
 
 def user_details_after(strategy, details, user=None, *args, **kwargs):
