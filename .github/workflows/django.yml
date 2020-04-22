@@ -30,5 +30,11 @@ jobs:
         EMAIL_HOST_PASSWORD : 12345
         ACCOUNT_KEY1 : abcd
         ACCOUNT_KEY2 : abcd
+        SOCIAL_AUTH_GOOGLE_OAUTH2_KEY : asas
+        SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET : asas
+        SOCIAL_AUTH_TWITTER_KEY : asas
+        SOCIAL_AUTH_TWITTER_SECRET : asas
+        SOCIAL_AUTH_GITHUB_KEY : asas
+        SOCIAL_AUTH_GITHUB_SECRET : asas
       run: |
         python manage.py test
