@@ -107,6 +107,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
 AUTHENTICATION_BACKENDS = [
     'social_core.backends.open_id.OpenIdAuth',
     'social_core.backends.google.GoogleOpenId',
@@ -120,6 +121,8 @@ AUTHENTICATION_BACKENDS = [
 
     'django.contrib.auth.backends.ModelBackend',
 ]
+
+SECURE_SSL_REDIRECT = True
 
 SOCIAL_AUTH_PIPELINE = (
 'social_core.pipeline.social_auth.social_details',
