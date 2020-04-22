@@ -16,12 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path , include
 from django.conf.urls import handler404
+from groups import views as core_views
 
 urlpatterns = [
 	path('',include('post.urls')),
 	path('',include('groups.urls')),
 	path('admin/', admin.site.urls),
-    path('', include('social_django.urls', namespace='social'))
+    path('', include('social_django.urls', namespace='social')),
+    path('settings/', core_views.settings, name='settings'),
+    path('settings/password/', core_views.password, name='password'),
 ]
 
 handler404 = 'groups.views.error_404_view'
