@@ -33,6 +33,9 @@ class GroupCreateView(LoginRequiredMixin, CreateView):
 def error_404_view(request, exception):
 	return render(request,'error.html')
 
+def error_500_view(request):
+	return render(request,'error.html')
+
 
 def user_details_after(strategy, details, user=None, *args, **kwargs):
     messages.info(strategy.request,"Logged in with email:" + details['email'])
@@ -53,7 +56,7 @@ def settings(request):
         twitter_login = None
 
     try:
-        google_login = user.social_auth.get(provider='google')
+        google_login = user.social_auth.get(provider='google-oauth2')
     except UserSocialAuth.DoesNotExist:
         google_login = None
 

@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path , include
-from django.conf.urls import handler404
+from django.conf.urls import handler404 , handler500
 from groups import views as core_views
 
 urlpatterns = [
@@ -28,3 +28,4 @@ urlpatterns = [
 ]
 
 handler404 = 'groups.views.error_404_view'
+handler500 = 'groups.views.error_500_view'

@@ -126,7 +126,7 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
 
-SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = False
 
 SOCIAL_AUTH_PIPELINE = (
 'social_core.pipeline.social_auth.social_details',
