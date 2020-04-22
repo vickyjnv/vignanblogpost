@@ -43,6 +43,10 @@
                             <button class="btn btn-lg btn-primary btn-block text-uppercase"
                                 type="submit">Register</button>
                             </form>
+                            <hr class="my-4">
+                            <a class="btn btn-lg rounded-pill btn-danger btn-block text-uppercase" href="{% url "social:begin" "google-oauth2" %}" > Sign up with Google</a>
+                            <a class="btn btn-lg rounded-pill btn-dark btn-block text-uppercase" href="{% url "social:begin" "github" %}" > Sign up with GitHub</a>
+                            <a class="btn btn-lg rounded-pill btn-primary btn-block text-uppercase" href="{% url "social:begin" "twitter" %}" > Sign up with Twitter</a>
                     </div>
                 </div>
             </div>

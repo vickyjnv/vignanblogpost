@@ -28,3 +28,7 @@ class GroupCreateView(LoginRequiredMixin, CreateView):
 def error_404_view(request, exception):
 	return render(request,'error.html')
 
+
+def user_details_after(strategy, details, user=None, *args, **kwargs):
+    messages.info(strategy.request,"Logged in with email:" + details['email'])
+

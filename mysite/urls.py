@@ -21,6 +21,7 @@ urlpatterns = [
 	path('',include('post.urls')),
 	path('',include('groups.urls')),
 	path('admin/', admin.site.urls),
+    path('', include('social_django.urls', namespace='social'))
 ]
 
 handler404 = 'groups.views.error_404_view'

@@ -23,15 +23,18 @@
                             <input type="checkbox" class="custom-control-input" id="customCheck1">
                             <label class="custom-control-label" for="customCheck1">Remember password</label>
                         </div>
-                        <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+                        <button class="btn rounded-pill btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
                         <a class="text-primary" href="/account/reset_password"> Reset Password</a>
+                        <hr class="my-4">
+                            <a class="btn btn-lg rounded-pill btn-danger btn-block text-uppercase" href="{% url "social:begin" "google-oauth2" %}" > Sign in with Google</a>
+                            <a class="btn btn-lg rounded-pill btn-dark btn-block text-uppercase" href="{% url "social:begin" "github" %}" > Sign in with GitHub</a>
+                            <a class="btn btn-lg rounded-pill btn-primary btn-block text-uppercase" href="{% url "social:begin" "twitter" %}" > Sign in with Twitter</a>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 
 
 
@@ -67,7 +70,7 @@
         font-weight: 300;
         font-size: 1.5rem;
     }
-    
+   
     .card-signin .card-body {
         padding: 2rem;
     }
@@ -76,20 +79,7 @@
         width: 100%;
     }
     
-    .form-signin .btn {
-        background: #56CCF2;
-        /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #2F80ED, #56CCF2);
-        /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to right, #2F80ED, #56CCF2);
-        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        font-size: 80%;
-        border-radius: 5rem;
-        letter-spacing: .1rem;
-        font-weight: bold;
-        padding: 1rem;
-        transition: all 0.2s;
-    }
+    
     
     .form-label-group {
         position: relative;

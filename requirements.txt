@@ -7,3 +7,4 @@ django-imagekit
 six
 django-storages[azure]
 django_heroku
+social-auth-app-django
