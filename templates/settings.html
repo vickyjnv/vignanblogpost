@@ -38,7 +38,7 @@
 
   <h3>Google</h3>
   {% if google_login %}
-    <p>Connected as <a href="https://google.com/{{ google_login.extra_data.id }}/" target="_blank">{{ google_login.uid }}</a></p>
+    <p>Connected as <a href="#" target="_blank">{{ google_login.uid }}</a></p>
     {% if can_disconnect %}
       <form method="post" action="{% url 'social:disconnect' 'google-oauth2' %}">
         {% csrf_token %}
@@ -49,7 +49,7 @@
       <p style="color: red">You must <a href="{% url 'password' %}">define a password</a> for your account before disconnecting from Google.</p>
     {% endif %}
   {% else %}
-    <a href="{% url 'social:begin' 'google' %}">Connect to google</a>
+    <a href="{% url 'social:begin' 'google-oauth2' %}">Connect to google</a>
   {% endif %}
 
 {% endblock %}

@@ -89,4 +89,16 @@ def password(request):
         form = PasswordForm(request.user)
     return render(request, 'password.html', {'form': form})
 
-
+def valid(request,strategy, details, user=None, is_new=False):
+    try:
+        if user and user.email:
+            return
+        elif is_new and not details.get('email'):
+            userEmail = strategy.request_data().get('email')
+            if userEmail:
+                details['email'] = userEmail
+            else:
+                messages.error(request, 'Your Social account do not have an email try another method')
+    except Exception as e:
+        messages.error(request, str(e) )
+    return redirect('login')
