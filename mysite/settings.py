@@ -8,7 +8,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ekfchs9c69(31_=nu$87^x1ly(&)n5y9c=2#i&z&wqv1)a9p^-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -131,7 +131,6 @@ SOCIAL_AUTH_PIPELINE = (
 'social_core.pipeline.social_auth.social_user',
 'social_core.pipeline.user.get_username',
 'social_core.pipeline.mail.mail_validation',
-'groups.views.valid',
 'social_core.pipeline.social_auth.associate_by_email',
 'social_core.pipeline.user.create_user',
 'social_core.pipeline.social_auth.associate_user',
