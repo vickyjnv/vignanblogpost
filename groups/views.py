@@ -89,9 +89,9 @@ def password(request):
         form = PasswordForm(request.user)
     return render(request, 'password.html', {'form': form})
 
-def valid(request):
+def valid(request ,backend, *args, **kwargs):
     try:
-        pass
+        messages.error(request, backend )
     except Exception as e:
         messages.error(request, str(e) )
     return redirect('login')
