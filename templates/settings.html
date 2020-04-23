@@ -38,9 +38,9 @@
 
   <h3>Google</h3>
   {% if google_login %}
-    <p>Connected as <a href="https://google.com/{{ google_login.extra_data.id }}/" target="_blank">{{ google_login.extra_data.id }}</a></p>
+    <p>Connected as <a href="https://google.com/{{ google_login.extra_data.id }}/" target="_blank">{{ google_login.uid }}</a></p>
     {% if can_disconnect %}
-      <form method="post" action="{% url 'social:disconnect' 'google' %}">
+      <form method="post" action="{% url 'social:disconnect' 'google-oauth2' %}">
         {% csrf_token %}
         <button type="submit">Disconnect from google</button>
       </form>

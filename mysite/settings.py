@@ -8,7 +8,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ekfchs9c69(31_=nu$87^x1ly(&)n5y9c=2#i&z&wqv1)a9p^-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -118,10 +118,7 @@ AUTHENTICATION_BACKENDS = [
     'social_core.backends.google.GoogleOAuth2',
     'social_core.backends.google.GoogleOAuth',
     'social_core.backends.twitter.TwitterOAuth',
-    'social_core.backends.yahoo.YahooOpenId',
     'social_core.backends.github.GithubOAuth2',
-    'social_core.backends.facebook.FacebookOAuth2',
-    'social_core.backends.instagram.InstagramOAuth2',
 
     'django.contrib.auth.backends.ModelBackend',
 ]
