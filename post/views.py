@@ -58,10 +58,9 @@ def register(request):
 	if request.method == 'POST':
 		form = UserRegisterForm(request.POST)
 		if form.is_valid():
+			user = form.save(commit=False)
+			# user.is_active = False
 			user.save()
-			# user = form.save(commit=False)
-			# # user.is_active = False
-			# user.save()
 			# current_site = get_current_site(request)
 			# mail_subject = 'Activate your blog account.'
 			# message = render_to_string('acc_active_email.html', {
