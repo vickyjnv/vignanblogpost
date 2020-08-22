@@ -59,23 +59,24 @@ def register(request):
 		form = UserRegisterForm(request.POST)
 		if form.is_valid():
 			user = form.save(commit=False)
-			user.is_active = False
+			# user.is_active = False
 			user.save()
-			current_site = get_current_site(request)
-			mail_subject = 'Activate your blog account.'
-			message = render_to_string('acc_active_email.html', {
-                'user': user,
-                'domain': current_site.domain,
-                'uid':urlsafe_base64_encode(force_bytes(user.pk)),
-                'token':account_activation_token.make_token(user),
-            })
-			to_email = form.cleaned_data.get('email')
-			email = EmailMessage(mail_subject, message, to=[to_email])
-			email.send()
-			username = form.cleaned_data.get('username')
-			messages.success(request, f'Account created for {username}!')
-			messages.info(request, f'Please confirm your email address to complete the registration')
-			return render(request,'email.html', {'to_email': to_email})
+			# current_site = get_current_site(request)
+			# mail_subject = 'Activate your blog account.'
+			# message = render_to_string('acc_active_email.html', {
+            #     'user': user,
+            #     'domain': current_site.domain,
+            #     'uid':urlsafe_base64_encode(force_bytes(user.pk)),
+            #     'token':account_activation_token.make_token(user),
+            # })
+			# to_email = form.cleaned_data.get('email')
+			# email = EmailMessage(mail_subject, message, to=[to_email])
+			# email.send()
+			# username = form.cleaned_data.get('username')
+			# messages.success(request, f'Account created for {username}!')
+			# messages.info(request, f'Please confirm your email address to complete the registration')
+			# return render(request,'email.html', {'to_email': to_email})
+            return redirect('index')
 	else:
 		form = UserRegisterForm()
 	return render(request, 'post/register.html', {'form': form })
